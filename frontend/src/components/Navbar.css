@@ -1,0 +1,48 @@
+.navbar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px black;
+    box-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, .1);
+}
+
+.navbar .logo{
+    margin-left: 20px;
+    width: 70px;
+}
+
+.nav-list a{
+    position: relative;
+    font-size: 18px;
+    font-weight: 500;
+    margin-left: 40px;
+    text-decoration: none;
+    color: black;
+}
+
+.nav-list a:hover{
+    color: #f9ba60;
+}
+
+.nav-list button{
+    border: 2px solid #f9ba60;
+    color: #f9ba60;
+    padding: 10px;
+    border-radius: 10px;
+    margin-left: 40px;
+    margin-right: 20px;
+    font-weight: 500;
+    
+}
+
+.nav-list button:hover{
+    border: 2px solid black;
+    color: black;
+    background: #f9ba60;
+    transition: 0.75s;
+}
