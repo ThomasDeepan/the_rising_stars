@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import logo from "../assets/logo.png"
+import { Link } from 'react-router-dom';
 // import './Navbar.css'
 
 const navbar = () => {
@@ -35,10 +36,22 @@ const navbar = () => {
           <li className="hover:text-orange-500 cursor-pointer">About Us</li>
           <li className="hover:text-orange-500 cursor-pointer">Gallery</li>
           <li className="hover:text-orange-500 cursor-pointer">Franchise</li>
-          <li className="hover:text-orange-500 cursor-pointer">Contact Us</li>
+          <li ><Link to="/contact" className="hover:!text-orange-500 !cursor-pointer !no-underline !text-inherit">Contact Us</Link></li>
           <button style={{ borderRadius: '10px' }} className="px-4 py-2 border-[2px] text-orange-500 border-orange-500 rounded-lg 
           overflow-hidden hover:text-black hover:border-black hover:bg-orange-300 transition-all duration-700"  >Enroll Now</button>
         </ul>
+
+        {/* link testing----------------------
+
+        <div className="hidden md:flex items-center gap-8 font-semibold">
+          <Link to="" className="hover:text-orange-500 cursor-pointer">About Us</Link>
+          <Link to="" className="hover:text-orange-500 cursor-pointer">Gallery</Link>
+          <Link to="" className="hover:text-orange-500 cursor-pointer">Franchise</Link>
+          <Link to="" className="hover:text-orange-500 cursor-pointer">Home</Link>
+          <Link to="/contact" className="hover:text-orange-500 cursor-pointer">Contact Us</Link>
+          <button style={{ borderRadius: '10px' }} className="px-4 py-2 border-[2px] text-orange-500 border-orange-500 rounded-lg 
+          overflow-hidden hover:text-black hover:border-black hover:bg-orange-300 transition-all duration-700"  >Enroll Now</button>
+        </div> */}
 
 
 {/* style={{ borderRadius: '10px' }}*/}
