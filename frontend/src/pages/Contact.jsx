@@ -1,144 +1,93 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Contact.css';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
-const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    message: '',
-  });
-
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Add your form submission logic here
-    console.log('Form submitted:', formData);
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 3000);
-    setFormData({ name: '', email: '', phone: '', message: '' });
-  };
-
+const ContactPage = () => {
   return (
-    <div className="contact-us-container">
-      <section className="contact-hero">
-        <h1>Contact Us</h1>
-        <p>Get in touch with us. We'd love to hear from you.</p>
+    <div className="rs-contact-wrapper">
+      {/* Hero Section - Now the top-most element */}
+      <section className="rs-hero">
+        <h1>CONTACT US</h1>
       </section>
 
-      <section className="contact-content">
-        <div className="contact-info">
-          <h2>Contact Information</h2>
-          <div className="info-item">
-            <h3>Email</h3>
-            <p>risingstarskidsschoolvpm@gmail.com</p>
+      {/* Contact Info Cards */}
+      <section className="rs-info-grid">
+        <div className="info-card">
+          <i className="fas fa-clock"></i>
+          <h3>Opening Hours:</h3>
+          <p>Mon-Fri : 9.00 am - 2.30pm.</p>
+          <p>Saturday : 9.30am - 12.00noon.</p>
+        </div>
+        <div className="info-card">
+          <i className="fas fa-envelope"></i>
+          <h3>Email</h3>
+          <p>risingstarskidsschoolvpm@gmail.com</p>
+        </div>
+        <div className="info-card">
+          <i className="fas fa-phone"></i>
+          <h3>Phone Number</h3>
+          <p>+91 9566862918</p>
+        </div>
+      </section>
+
+      {/* Get In Touch Section */}
+      <section className="rs-get-in-touch">
+        <div className="touch-container">
+          <div className="touch-image">
+            <img src="/src/assets/240.jpeg" />
           </div>
-          <div className="info-item">
-            <h3>Phone</h3>
-            <p>+91 9566862918</p>
-          </div>
-          <div className="info-item">
-            <h3>Address</h3>
-            <p>Your Address Here</p>
+          <div className="touch-content">
+            <h3>Get In Touch</h3>
+            <form className="rs-form">
+              <input type="text" placeholder="Your Name" />
+              <input type="email" placeholder="Your Email" />
+              <input type="number" placeholder="Your Phone" />
+              <textarea placeholder="Your Message" rows="5"></textarea>
+              <button type="submit" className="submit-btn">Send Message</button>
+            </form>
           </div>
         </div>
-
-        <form className="contact-form" onSubmit={handleSubmit}>
-          <h2>Send us a Message</h2>
-          {submitted && <p className="success-message">Message sent successfully!</p>}
-          
-          <input
-            type="text"
-            name="name"
-            placeholder="Your Name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-          />
-          
-          <input
-            type="email"
-            name="email"
-            placeholder="Your Email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
-          
-          <input
-            type="tel"
-            name="phone"
-            placeholder="Your Phone"
-            value={formData.phone}
-            onChange={handleChange}
-          />
-          
-          <textarea
-            name="message"
-            placeholder="Your Message"
-            rows="6"
-            value={formData.message}
-            onChange={handleChange}
-            required
-          ></textarea>
-          
-          <button type="submit" className="submit-btn">Send Message</button>
-        </form>
       </section>
-            {/* Footer */}
-      <footer className="bg-gray-900 text-gray-300 px-6 py-10">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div>
-            <h3 className="text-yellow-400 font-semibold mb-3">Quick Links</h3>
-            <ul className="space-y-2">
-              <li className="hover:text-white cursor-pointer">Enroll Now</li>
-              <li className="hover:text-white cursor-pointer">Parent Portal</li>
-              <li className="hover:text-white cursor-pointer">School Calendar</li>
-              <li className="hover:text-white cursor-pointer">Lunch Menu</li>
-              <li className="hover:text-white cursor-pointer">School Supply List</li>
+
+      {/* Footer */}
+      <footer className="rs-footer">
+        <div className="footer-cols">
+          <div className="footer-col">
+            <h3>Rising Stars</h3>
+            <p>"A Pre-School which enlighten your kids to Rise like a Sun and Shine like a Star."</p>
+          </div>
+          <div className="footer-col">
+            <h3>Quick Links</h3>
+            <ul>
+              <li>Enroll Now</li>
+              <li>Parent Portal</li>
+              <li>School Calendar</li>
+              <li>Lunch Menu</li>
             </ul>
           </div>
-
-          <div>
-            <h3 className="text-yellow-400 font-semibold mb-3">Category</h3>
-            <ul className="space-y-2">
-              <li className="hover:text-white cursor-pointer">About Us</li>
-              <li className="hover:text-white cursor-pointer">Academics</li>
-              <li className="hover:text-white cursor-pointer">Admissions</li>
-              <li className="hover:text-white cursor-pointer">News & Events</li>
-              <li className="hover:text-white cursor-pointer">Contact Us</li>
+          <div className="footer-col">
+            <h3>Category</h3>
+            <ul>
+              <li>About Us</li>
+              <li>Academics</li>
+              <li>Admissions</li>
+              <li>News & Events</li>
             </ul>
           </div>
-
-          <div>
-            <h3 className="text-yellow-400 font-semibold mb-3">Extra Links</h3>
-            <ul className="space-y-2">
-              <li className="hover:text-white cursor-pointer">Privacy Policy</li>
-              <li className="hover:text-white cursor-pointer">Terms of Use</li>
-              <li className="hover:text-white cursor-pointer">Site Map</li>
-              <li className="hover:text-white cursor-pointer">FAQs</li>
-              <li className="hover:text-white cursor-pointer">Accessibility Statement</li>
+          <div className="footer-col">
+            <h3>Extra Links</h3>
+            <ul>
+              <li>Privacy Policy</li>
+              <li>Terms of Use</li>
+              <li>FAQs</li>
             </ul>
           </div>
         </div>
-
-        <p className="text-center text-sm mt-8">
-          © copyright @ 2026 by Shank's Code
-        </p>
+        <div className="footer-bottom">
+          © Copyright @ 2026 by Shank's Code
+        </div>
       </footer>
-
     </div>
   );
 };
 
-export default Contact
+export default ContactPage;
